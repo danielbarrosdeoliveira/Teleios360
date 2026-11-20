@@ -118,7 +118,7 @@ const router = createRouter({
 });
 
 // Navigation guard para sincronizar workspace ativo
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const workspaceStore = useWorkspaceStore();
   const requiredWorkspace = to.meta.workspace as string;
 

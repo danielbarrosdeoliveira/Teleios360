@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Editor de sermões rico (Markdown/RTF)',
   'Modo de pregação (tela cheia, fonte grande, scroll automático)',
   'Versões da Bíblia integradas (ARA, NVI, Almeida)',

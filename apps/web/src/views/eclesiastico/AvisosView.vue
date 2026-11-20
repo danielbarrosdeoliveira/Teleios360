@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Criação de avisos com formatação rica',
   'Agendamento de envios (data/hora)',
   'Integração WhatsApp (grupo/lista de transmissão)',

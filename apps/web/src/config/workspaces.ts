@@ -167,7 +167,7 @@ export function getWorkspace(id: WorkspaceId): WorkspaceConfig {
 }
 
 export function getActiveModules(workspaceId: WorkspaceId): WorkspaceModule[] {
-  return WORKSPACES[workspaceId].modules.filter(m => m.active);
+  return WORKSPACES[workspaceId].modules.filter((m) => m.active);
 }
 
 export function getAllModules(workspaceId: WorkspaceId): WorkspaceModule[] {

@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Dízimos e ofertas por culto (entrada automática via escala)',
   'Contas a pagar/receber da congregação',
   'Fechamento de caixa por culto/período',

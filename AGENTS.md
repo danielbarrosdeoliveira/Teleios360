@@ -7,14 +7,16 @@ Antes de criar arquivos, instalar pacotes ou alterar a estrutura do projeto, sig
 
 - `apps/api`: Backend único em NestJS + Drizzle ORM + PostgreSQL + Redis/BullMQ.
 - `apps/web`: Frontend Web em **Vite + Vue.js + Vuetify**.
+- `packages/shared`: Pacote compartilhado com tipos, constantes, validações e utilitários puros reutilizados entre `apps/api` e `apps/web`. Nome do pacote: `@teleios360/shared`.
 - `.opencode/docs/`: Fonte única da verdade para regras de negócio, PRDs e roadmap do produto.
 
 ## 2. Regras Estruturais Rígidas (Proibições)
 
 1. **NUNCA** crie outras pastas de aplicação dentro de `apps/` (não criar `apps/frontend`, `apps/backend`, etc.). O frontend web oficial é exclusivamente `apps/web`.
-2. **NUNCA** instale ou configure Turborepo, Nx ou ferramentas complexas de pipeline sem solicitação explícita. Utilize apenas workspaces do `pnpm` e scripts diretos no `package.json` da raiz para iniciar `api` e `web`.
+2. **NUNCA** crie pastas de pacotes compartilhados fora de `packages/` (ex: `packages/shared` é o único permitido).
 3. **NUNCA** crie ou mantenha pastas `docs/` fora de `.opencode/docs/`. Toda documentação do projeto fica centralizada em `.opencode/docs/`.
 4. **NUNCA** implemente funcionalidades de ondas futuras (PJ/IRPF, Eclesiástico, Estudos, Família, Casa/Carro, WhatsApp) sem pedido expresso.
+5. **NUNCA** duplique código que possa ficar em `packages/shared`. Utilitários específicos de cada app vão em `apps/api/src/utils` ou `apps/web/src/utils`.
 
 ## 3. Índice de Documentação (`.opencode/docs/`)
 
@@ -44,3 +46,25 @@ Consulte os arquivos abaixo antes de iniciar qualquer tarefa:
   - Views orquestram a tela e tratam estados de carregamento (`skeleton`), vazio e erro.
   - Composables coordenam a busca/mutação de dados e a integração entre TanStack Query e Pinia.
   - Componentes recebem dados via `props` e notificam ações via `emits`, respeitando a verbosidade natural de SFCs com Vuetify sem limite artificial de linhas.
+
+## 6. Qualidade de Código e Checklist de Conclusão
+
+**Antes de considerar qualquer tarefa concluída, é obrigatório rodar:**
+
+```bash
+pnpm lint:fix   # Formata e corrige problemas de lint automaticamente
+pnpm check      # Roda lint + typecheck (ou pnpm build para validar build completo)
+```
+
+**Uma tarefa só é considerada concluída após `pnpm lint:fix` e `pnpm check` (ou `pnpm build`) passarem sem erros.**
+
+### Ferramentas Configuradas
+
+- **Biome** (via `biome.json` na raiz): Lint unificado + formatação (indent 2 espaços, aspas simples, trailing commas es5, indent 2 spaces).
+- **TypeScript**: `tsc --noEmit` no `apps/api` e `vue-tsc --noEmit` no `apps/web` via `pnpm typecheck`.
+- **Husky + lint-staged**: Pre-commit hook roda `biome check --write --no-errors-on-unmatched` apenas nos arquivos alterados (`*.{ts,tsx,js,jsx,json,vue,css}`).
+- **Scripts na raiz**:
+  - `pnpm lint` / `pnpm lint:fix` / `pnpm format`
+  - `pnpm typecheck`
+  - `pnpm check` (lint + typecheck)
+  - `pnpm build` (build de todos workspaces)

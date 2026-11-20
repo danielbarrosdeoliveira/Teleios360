@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Configuração de Pró-labore fixo mensal',
   'Distribuição de lucros trimestral/semestral',
   'Cálculo automático de impostos (INSS, IRRF)',

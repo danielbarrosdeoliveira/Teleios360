@@ -7,9 +7,28 @@
     "dev": "pnpm --parallel -r run dev",
     "dev:api": "pnpm --filter ./apps/api run dev",
     "dev:web": "pnpm --filter ./apps/web run dev",
-    "build": "pnpm -r run build"
+    "build": "pnpm -r run build",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "pnpm -r run typecheck",
+    "check": "pnpm lint && pnpm typecheck",
+    "prepare": "husky"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "vue-demi"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,vue,css}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   }
 }

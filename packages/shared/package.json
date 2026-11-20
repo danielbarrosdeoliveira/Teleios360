@@ -1,0 +1,11 @@
+{
+  "name": "@teleios360/shared",
+  "version": "1.0.0",
+  "description": "Código compartilhado entre apps do Teleios360 (tipos, constantes, utilitários puros)",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

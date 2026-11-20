@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-import type { WorkspaceId, WorkspaceConfig, WorkspaceModule } from '@/config/workspaces';
-import { WORKSPACES, WORKSPACE_ORDER, getActiveModules, getAllModules } from '@/config/workspaces';
+import { computed, ref } from 'vue';
+import type { WorkspaceConfig, WorkspaceId, WorkspaceModule } from '@/config/workspaces';
+import { getActiveModules, getAllModules, WORKSPACE_ORDER, WORKSPACES } from '@/config/workspaces';
 
 const STORAGE_KEY = 'teleios360-workspace';
 
@@ -21,10 +21,12 @@ export const useWorkspaceStore = defineStore('workspace', () => {
 
   // Getters
   const currentWorkspace = computed<WorkspaceConfig>(() => WORKSPACES[activeWorkspace.value]);
-  const currentWorkspaceModules = computed<WorkspaceModule[]>(() => getAllModules(activeWorkspace.value));
+  const currentWorkspaceModules = computed<WorkspaceModule[]>(() =>
+    getAllModules(activeWorkspace.value)
+  );
   const activeModules = computed<WorkspaceModule[]>(() => getActiveModules(activeWorkspace.value));
   const workspaceOrder = computed(() => WORKSPACE_ORDER);
-  const allWorkspaces = computed(() => WORKSPACE_ORDER.map(id => WORKSPACES[id]));
+  const allWorkspaces = computed(() => WORKSPACE_ORDER.map((id) => WORKSPACES[id]));
 
   // Actions
   function setWorkspace(id: WorkspaceId) {
@@ -52,7 +54,7 @@ export const useWorkspaceStore = defineStore('workspace', () => {
 
   // Verifica se um módulo está ativo
   function isModuleActive(moduleId: string): boolean {
-    return activeModules.value.some(m => m.id === moduleId);
+    return activeModules.value.some((m) => m.id === moduleId);
   }
 
   // Obtém a rota base do workspace atual

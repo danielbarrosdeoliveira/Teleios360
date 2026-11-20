@@ -1,2 +1,4 @@
 packages:
-  - 'apps/*'
+  - "apps/*"
+overrides:
+  "@teleios360/shared": link:packages/shared

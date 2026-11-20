@@ -150,37 +150,37 @@
 </template>
 
 <script setup lang="ts">
-import { useWorkspaceStore } from '@/stores/workspace';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { useWorkspaceStore } from '@/stores/workspace';
 
 const workspaceStore = useWorkspaceStore();
-const router = useRouter();
+const _router = useRouter();
 
 // Inicializa store do localStorage
 workspaceStore.initFromStorage();
 
 // Computeds
-const activeWorkspace = computed(() => workspaceStore.activeWorkspace);
-const currentWorkspace = computed(() => workspaceStore.currentWorkspace);
-const currentWorkspaceModules = computed(() => workspaceStore.currentWorkspaceModules);
-const allWorkspaces = computed(() => workspaceStore.allWorkspaces);
-const drawerOpen = computed({
+const _activeWorkspace = computed(() => workspaceStore.activeWorkspace);
+const _currentWorkspace = computed(() => workspaceStore.currentWorkspace);
+const _currentWorkspaceModules = computed(() => workspaceStore.currentWorkspaceModules);
+const _allWorkspaces = computed(() => workspaceStore.allWorkspaces);
+const _drawerOpen = computed({
   get: () => workspaceStore.drawerOpen,
   set: (val) => workspaceStore.setDrawerOpen(val),
 });
-const drawerMini = computed({
+const _drawerMini = computed({
   get: () => workspaceStore.drawerMini,
   set: (val) => workspaceStore.setDrawerMini(val),
 });
 
 // Módulos inativos (para mostrar "Em breve")
-const inactiveModules = computed(() => 
-  workspaceStore.currentWorkspaceModules.filter(m => !m.active)
+const _inactiveModules = computed(() =>
+  workspaceStore.currentWorkspaceModules.filter((m) => !m.active)
 );
 
 // Actions
-const setWorkspace = (id: string) => {
+const _setWorkspace = (id: string) => {
   workspaceStore.setWorkspace(id as 'PERSONAL' | 'BUSINESS_PJ' | 'ECCLESIASTICAL');
   // Fecha drawer em mobile após seleção
   if (window.innerWidth < 1264) {
@@ -188,8 +188,8 @@ const setWorkspace = (id: string) => {
   }
 };
 
-const toggleDrawer = () => workspaceStore.toggleDrawer();
-const toggleDrawerMini = () => workspaceStore.toggleDrawerMini();
+const _toggleDrawer = () => workspaceStore.toggleDrawer();
+const _toggleDrawerMini = () => workspaceStore.toggleDrawerMini();
 </script>
 
 <style scoped>

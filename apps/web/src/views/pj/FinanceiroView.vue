@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Contas a pagar da PJ (impostos, contabilidade, convênio)',
   'Faturamento e emissão de notas fiscais',
   'Fluxo de caixa da empresa',

@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Agenda de visitas nos lares (recorrentes e pontuais)',
   'Histórico de visitas por família/membro',
   'Registro de pedidos de oração por visita',

@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Acompanhamento escolar (notas, trabalhos, reuniões)',
   'Agenda familiar (consultas, passeios, eventos)',
   'Controle de mesada e educação financeira',

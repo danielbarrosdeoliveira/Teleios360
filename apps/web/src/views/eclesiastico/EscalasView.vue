@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Escala automática de obreiros para 3 cultos/semana',
   'Controle de frequência (presente/ausente/justificado)',
   'Identificação de assiduidade por obreiro',

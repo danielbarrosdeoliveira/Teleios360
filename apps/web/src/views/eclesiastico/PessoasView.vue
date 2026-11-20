@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Cadastro completo de membros e obreiros',
   'Cargos: Cooperador, Obreira, Diácono, Diaconisa, Presbítero, Evangelista, Missionária, Pastor',
   'Departamentos: UVAFÉ, UCAFÉ Teens/Kids, USEAFÉ, UMAFÉ, Louvor, Mídia, Visita',

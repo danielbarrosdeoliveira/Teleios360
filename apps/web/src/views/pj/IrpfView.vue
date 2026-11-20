@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Classificação fiscal automática de transações',
   'Rendimentos tributáveis / isentos / exclusivos',
   'Despesas dedutíveis com anexo de comprovantes',

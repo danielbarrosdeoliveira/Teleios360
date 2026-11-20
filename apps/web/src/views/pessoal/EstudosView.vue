@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Catálogo de livros (Tenho / Lendo / Lido)',
   'Anotações e highlights por livro',
   'Backlog de cursos por área de interesse',

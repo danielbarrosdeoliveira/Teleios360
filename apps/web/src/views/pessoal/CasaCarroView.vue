@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-const features = [
+const _features = [
   'Consumos: água, luz, gás (botijões/ano)',
   'Estoque de despensa e compras recorrentes',
   'Análise de viabilidade de energia solar',
