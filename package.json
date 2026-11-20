@@ -1,0 +1,15 @@
+{
+  "name": "teleios360",
+  "version": "1.0.0",
+  "description": "Teleios360 ERP - Sistema de gestão pessoal e ministerial",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel -r run dev",
+    "dev:api": "pnpm --filter ./apps/api run dev",
+    "dev:web": "pnpm --filter ./apps/web run dev",
+    "build": "pnpm -r run build"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "vue-demi"]
+  }
+}
